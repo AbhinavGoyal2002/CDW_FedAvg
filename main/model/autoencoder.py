@@ -45,11 +45,7 @@ class AutoEncoderModel(Model):
 
        loss = tf.reduce_mean(tf.square(pred - features))
       
-       train_op = self.optimizer.minimize(
-            loss=loss,
-            var_list = [],
-            tape = []
-       )
+       train_op = self.keras.optimizers.experimental.SGD(learning_rate=0.1)
 
 
 
