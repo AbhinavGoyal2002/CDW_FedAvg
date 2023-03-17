@@ -33,7 +33,7 @@ class Model(ABC):
            # self.tn_op, self.fp_op, self.fn_op = self.create_model()
            self.features, self.encoder, self.train_op, self.loss = self.create_model()
            self.saver = tf.compat.v1.train.Saver()
-       self.sess = tf.Session(graph=self.graph)
+       self.sess = tf.compat.v1.Session(graph=self.graph)
 
 
        self.size = graph_size(self.graph)
