@@ -45,11 +45,10 @@ class AutoEncoderModel(Model):
 
        loss = tf.reduce_mean(tf.square(pred - features))
       
-       train_op = tf.keras.optimizer.minimize(
-                   loss = loss,
-                   var_list = None,
-                   tape = tf.GradientTape
-       )
+        train_op = self.optimizer.minimize(
+            loss=loss,
+            global_step= global_step)
+
 
 
 
