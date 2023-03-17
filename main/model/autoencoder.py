@@ -48,7 +48,7 @@ class AutoEncoderModel(Model):
        train_op = self.optimizer.minimize(
             self,
             loss=loss,
-            global_step=tf.train.get_global_step())
+            global_step=tf.compat.v1.train.get_global_step())
 
 
 
