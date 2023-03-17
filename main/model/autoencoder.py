@@ -24,16 +24,16 @@ class AutoEncoderModel(Model):
 
 
    def encoder_op(self, X):
-       layer_1 = tf.nn.sigmoid(tf.layers.dense(inputs=X, units=self.n_hidden))
-       layer_2 = tf.nn.sigmoid(tf.layers.dense(inputs=layer_1, units=self.config.n_hidden))
-       layer_3 = tf.nn.sigmoid(tf.layers.dense(inputs=layer_2, units=2))
+       layer_1 = tf.nn.sigmoid(tf.compat.v1.layers.dense(inputs=X, units=self.n_hidden))
+       layer_2 = tf.nn.sigmoid(tf.compat.v1.layers.dense(inputs=layer_1, units=self.config.n_hidden))
+       layer_3 = tf.nn.sigmoid(tf.compat.v1.layers.dense(inputs=layer_2, units=2))
        return layer_3
 
 
    def decoder_op(self, X):
-       layer_1 = tf.nn.sigmoid(tf.layers.dense(inputs=X, units=self.n_hidden))
-       layer_2 = tf.nn.sigmoid(tf.layers.dense(inputs=layer_1, units=self.config.n_hidden))
-       layer_3 = tf.nn.sigmoid(tf.layers.dense(inputs=layer_2, units=self.config.n_dimension))
+       layer_1 = tf.nn.sigmoid(tf.compat.v1.layers.dense(inputs=X, units=self.n_hidden))
+       layer_2 = tf.nn.sigmoid(tf.compat.v1.layers.dense(inputs=layer_1, units=self.config.n_hidden))
+       layer_3 = tf.nn.sigmoid(tf.compat.v1.layers.dense(inputs=layer_2, units=self.config.n_dimension))
        return layer_3
 
 
