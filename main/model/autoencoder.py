@@ -45,7 +45,7 @@ class AutoEncoderModel(Model):
 
        loss = tf.reduce_mean(tf.square(pred - features))
       
-       train_op = tf.compat.v1.train.minimize(
+       train_op = tf.compat.v1.train.compute_gradients(
                    loss = loss,
                    global_step=None,
                    var_list=None)
