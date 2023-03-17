@@ -9,7 +9,7 @@
 
 import numpy as np
 import tensorflow as tf
-
+from tensorflow import keras
 
 from main.model.model_ae import Model
 from main.utils.model_utils import one_hot
@@ -45,7 +45,7 @@ class AutoEncoderModel(Model):
 
        loss = tf.reduce_mean(tf.square(pred - features))
       
-       train_op = self.optimizer.minimize(
+       train_op = tf.keras.optimizer.minimize(
                    loss = loss,
                    var_list,
                    tape = tf.GradientTape
