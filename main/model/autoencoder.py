@@ -48,7 +48,8 @@ class AutoEncoderModel(Model):
 
        train_op = self.optimizer.minimize(
        loss = loss,
-       var_list = None)
+       var_list = None,
+       tape)
 
 
        return features, encoder, train_op, loss
