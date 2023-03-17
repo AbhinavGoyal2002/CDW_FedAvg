@@ -44,7 +44,7 @@ class Model(ABC):
 
 
            metadata = tf.compat.v1.RunMetadata()
-           opts = tf.profiler.ProfileOptionBuilder.float_operation()
+           opts = tf.compat.v1.profiler.ProfileOptionBuilder.float_operation()
            self.flops = tf.profiler.profile(self.graph, run_meta=metadata, cmd='scope', options=opts).total_float_ops
 
 
