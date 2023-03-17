@@ -47,7 +47,7 @@ class AutoEncoderModel(Model):
       
        train_op = tf.keras.optimizer.minimize(
                    loss = loss,
-                   var_list,
+                   var_list = None,
                    tape = tf.GradientTape
        )
 
