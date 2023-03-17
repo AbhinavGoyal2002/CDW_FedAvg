@@ -9,7 +9,8 @@
 
 import numpy as np
 import tensorflow as tf
-
+from tensorflow import keras
+from tensorflow.keras import layers
 
 from main.model.model_ae import Model
 from main.utils.model_utils import one_hot
