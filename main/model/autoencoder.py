@@ -45,7 +45,7 @@ class AutoEncoderModel(Model):
 
        loss = tf.reduce_mean(tf.square(pred - features))
       
-       train_op = self.tf.keras.optimizers.Adam(learning_rate=0.001)
+       train_op = self.keras.optimizers.Adam(learning_rate=0.001)
 
 
 
