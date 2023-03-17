@@ -8,8 +8,10 @@
 
 
 import numpy as np
-import tensorflow as tf
-from tensorflow import keras
+#import tensorflow as tf
+#from tensorflow import keras
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 from main.model.model_ae import Model
 from main.utils.model_utils import one_hot
@@ -45,7 +47,9 @@ class AutoEncoderModel(Model):
 
        loss = tf.reduce_mean(tf.square(pred - features))
       
-       train_op = tf.train.GradientDescentOptimizer(0.5)
+       train_op = self.optimizer.minimize(
+            loss=loss,
+            global_step=tf.train.get_global_step())
 
 
 
