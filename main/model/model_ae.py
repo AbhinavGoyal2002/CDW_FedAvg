@@ -40,7 +40,7 @@ class Model(ABC):
 
 
        with self.graph.as_default():
-           self.sess.run(tf.global_variables_initializer())
+           self.sess.run(tf.compat.v1.global_variables_initializer())
 
 
            metadata = tf.RunMetadata()
