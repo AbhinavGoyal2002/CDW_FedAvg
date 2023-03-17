@@ -47,9 +47,8 @@ class AutoEncoderModel(Model):
       
        train_op = self.optimizer.minimize(
             loss=loss,
-            var_list = [],
-            tape = []
-       )
+            global_step=tf.train.get_global_step())
+
 
 
 
