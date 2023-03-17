@@ -47,7 +47,7 @@ class AutoEncoderModel(Model):
       
        train_op = self.optimizer.minimize(
                    self,
-                   loss = loss,
+                   loss = None,
                    var_list=None,
                    tape = tf.GradientTape)
 
