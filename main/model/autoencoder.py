@@ -9,8 +9,7 @@
 
 import numpy as np
 import tensorflow as tf
-from tensorflow import keras
-from tensorflow.keras import layers
+
 
 from main.model.model_ae import Model
 from main.utils.model_utils import one_hot
@@ -46,7 +45,11 @@ class AutoEncoderModel(Model):
 
        loss = tf.reduce_mean(tf.square(pred - features))
       
-       train_op = self.keras.optimizers.Adam(learning_rate=0.001)
+       train_op = self.optimizer.minimize(
+            loss=loss,
+            var_list = [],
+            tape = []
+       )
 
 
 
