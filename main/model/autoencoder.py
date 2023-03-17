@@ -47,7 +47,6 @@ class AutoEncoderModel(Model):
       
        train_op = self.optimizer.minimize(
                    loss = loss,
-                   global_step=None,
                    var_list=None)
 
 
