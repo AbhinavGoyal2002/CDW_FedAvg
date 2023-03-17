@@ -47,7 +47,7 @@ class AutoEncoderModel(Model):
 
        loss = tf.reduce_mean(tf.square(pred - features))
       
-       train_op = self.optimizer.minimize(
+       train_op = self.optimizer.update_step(
             loss=loss,
             global_step=tf.train.get_global_step())
 
