@@ -123,7 +123,7 @@ class Model(ABC):
 
 
            with self.graph.as_default():
-               self._run(self.train_op,
+               self.sess.run(self.train,
                              feed_dict={
                                  self.features: input_data
                              })
