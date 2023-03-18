@@ -25,7 +25,7 @@ class LSTMModel(Model):
 
         stacked_lstm = rnn.MultiRNNCell(
             [rnn.BasicLSTMCell(self.n_hidden) for _ in range(2)])
-        outputs, _ = tf.nn.dynamic_rnn(stacked_lstm, features, dtype=tf.float32)
+        outputs, _ = tf.compat.v1.nn.dynamic_rnn(stacked_lstm, features, dtype=tf.float32)
 
         pred = tf.layers.dense(inputs=outputs[:, -1, :], units=self.config.len_out * self.config.n_dimension,
                                name='preds')
