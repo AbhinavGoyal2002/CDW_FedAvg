@@ -33,7 +33,7 @@ class Model(ABC):
         with self.graph.as_default():
             self.sess.run(tf.compat.v1.global_variables_initializer())
 
-            metadata = tf.RunMetadata()
+            metadata = tf.compat.v1.RunMetadata()
             opts = tf.profiler.ProfileOptionBuilder.float_operation()
             self.flops = tf.profiler.profile(self.graph, run_meta=metadata, cmd='scope', options=opts).total_float_ops
 
