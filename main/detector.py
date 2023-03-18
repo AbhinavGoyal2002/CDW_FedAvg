@@ -39,7 +39,7 @@ class Detector:
         # random seed
         random.seed(1 + random_seed)
         np.random.seed(12 + random_seed)
-        tf.set_random_seed(123 + random_seed)
+        tf.random.set_seed(123 + random_seed)
         tf.logging.set_verbosity(tf.logging.WARN)
         # load model
         lr = self.config.lr
