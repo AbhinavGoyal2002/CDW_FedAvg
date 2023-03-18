@@ -34,8 +34,8 @@ class Model(ABC):
             self.sess.run(tf.compat.v1.global_variables_initializer())
 
             metadata = tf.compat.v1.RunMetadata()
-            opts = tf.profiler.ProfileOptionBuilder.float_operation()
-            self.flops = tf.profiler.profile(self.graph, run_meta=metadata, cmd='scope', options=opts).total_float_ops
+            opts = tf.compat.v1.profiler.ProfileOptionBuilder.float_operation()
+            self.flops = tf.compat.v1.profiler.profile(self.graph, run_meta=metadata, cmd='scope', options=opts).total_float_ops
 
         np.random.seed(self.seed)
 
