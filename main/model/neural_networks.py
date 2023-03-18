@@ -21,8 +21,8 @@ class NeuralNetworksModel(Model):
     def create_model(self):
         features = tf.compat.v1.placeholder(dtype=tf.float32, shape=[None, self.config.n_dimension], name='features')
         labels = tf.compat.v1.placeholder(dtype=tf.float32, shape=[None, self.config.n_label], name='labels')
-        hidden1 = tf.nn.relu6(tf.layers.dense(inputs=features, units=self.n_hidden))
-        hidden2 = tf.nn.relu6(tf.layers.dense(inputs=hidden1, units=self.n_hidden))
+        hidden1 = tf.nn.relu6(tf.compat.v1.layers.dense(inputs=features, units=self.n_hidden))
+        hidden2 = tf.nn.relu6(tf.compat.v1.layers.dense(inputs=hidden1, units=self.n_hidden))
         hidden3 = tf.layers.dense(inputs=hidden2, units=self.config.n_label)
         pred = tf.nn.softmax(hidden3)
         loss = tf.reduce_mean(
