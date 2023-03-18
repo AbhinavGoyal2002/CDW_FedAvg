@@ -46,7 +46,7 @@ class Detector:
         seq_len = self.config.seq_len
         num_class = self.config.num_class
         n_hidden = self.config.n_hidden
-        tf.reset_default_graph()
+        tf.compat.v1.reset_default_graph()
         if model_type == self.config.Fed_LSTM or model_type == self.config.LSTM:
             client_model = LSTMModel(config=self.config, seed=random_seed, lr=lr, seq_len=seq_len,
                                      num_classes=num_class,
