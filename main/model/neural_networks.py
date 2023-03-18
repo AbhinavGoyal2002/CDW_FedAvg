@@ -27,9 +27,7 @@ class NeuralNetworksModel(Model):
         pred = tf.nn.softmax(hidden3)
         loss = tf.reduce_mean(
             tf.compat.v1.nn.softmax_cross_entropy_with_logits_v2(logits=pred, labels=labels))
-        train_op = self.optimizer.minimize(
-            loss=loss,
-            global_step=tf.train.get_global_step())
+        train_op = tf.compat.v1.train.get_or_create_global_step()
         predictions = tf.argmax(pred, 1)
         actuals = tf.argmax(labels, 1)
 
