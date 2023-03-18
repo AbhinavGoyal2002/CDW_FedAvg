@@ -60,7 +60,7 @@ class Model(ABC):
 
    def get_params(self):
        with self.graph.as_default():
-           model_params = self.sess.run(tf.trainable_variables())
+           model_params = self.sess.run(tf.compat.v1.trainable_variables())
        return model_params
 
 
