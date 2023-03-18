@@ -77,7 +77,7 @@ class NeuralNetworksModel(Model):
         )
 
         correct_pred = tf.equal(predictions, actuals)
-        eval_metric_ops = tf.count_nonzero(correct_pred)
+        eval_metric_ops = tf.math.count_nonzero(correct_pred)
 
         return features, labels, train_op, eval_metric_ops, loss, tp_op, tn_op, fp_op, fn_op
 
