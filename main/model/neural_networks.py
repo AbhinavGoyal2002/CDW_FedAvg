@@ -26,7 +26,7 @@ class NeuralNetworksModel(Model):
         hidden3 = tf.compat.v1.layers.dense(inputs=hidden2, units=self.config.n_label)
         pred = tf.nn.softmax(hidden3)
         loss = tf.reduce_mean(
-            tf.nn.softmax_cross_entropy_with_logits_v2(logits=pred, labels=labels))
+            tf.compat.v1.nn.softmax_cross_entropy_with_logits_v2(logits=pred, labels=labels))
         train_op = self.optimizer.minimize(
             loss=loss,
             global_step=tf.train.get_global_step())
