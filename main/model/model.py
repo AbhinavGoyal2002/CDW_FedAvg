@@ -26,7 +26,7 @@ class Model(ABC):
             self.features, self.labels, self.train_op, self.eval_metric_ops, self.loss, self.tp_op, \
             self.tn_op, self.fp_op, self.fn_op = self.create_model()
             self.saver = tf.compat.v1.train.Saver()
-        self.sess = tf.Session(graph=self.graph)
+        self.sess = tf.compat.v1.Session(graph=self.graph)
 
         self.size = graph_size(self.graph)
 
