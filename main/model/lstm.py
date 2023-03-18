@@ -7,7 +7,7 @@
 
 import numpy as np
 import tensorflow as tf
-import tensorflow.nn.rnn_cell as rnn
+import tensorflow.compat.v1.nn.rnn_cell as rnn
 
 from main.model.model import Model
 
