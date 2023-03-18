@@ -22,7 +22,7 @@ class Model(ABC):
         self.config = config
         self.graph = tf.Graph()
         with self.graph.as_default():
-            tf.set_random_seed(123 + self.seed)
+            tf.random.set_seed(123 + self.seed)
             self.features, self.labels, self.train_op, self.eval_metric_ops, self.loss, self.tp_op, \
             self.tn_op, self.fp_op, self.fn_op = self.create_model()
             self.saver = tf.train.Saver()
