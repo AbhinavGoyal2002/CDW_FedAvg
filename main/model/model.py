@@ -54,7 +54,7 @@ class Model(ABC):
     def optimizer(self):
         """Optimizer to be used by the model."""
         if self._optimizer is None:
-            self._optimizer = tf.train.GradientDescentOptimizer(learning_rate=self.lr)
+            self._optimizer = tf.compat.v1.train.GradientDescentOptimizer(learning_rate=self.lr)
 
         return self._optimizer
 
