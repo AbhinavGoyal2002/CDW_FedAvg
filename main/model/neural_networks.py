@@ -19,8 +19,8 @@ class NeuralNetworksModel(Model):
         super(NeuralNetworksModel, self).__init__(config=config, seed=seed, lr=lr)
 
     def create_model(self):
-        features = tf.placeholder(dtype=tf.float32, shape=[None, self.config.n_dimension], name='features')
-        labels = tf.placeholder(dtype=tf.float32, shape=[None, self.config.n_label], name='labels')
+        features = tf.compat.v1.placeholder(dtype=tf.float32, shape=[None, self.config.n_dimension], name='features')
+        labels = tf.compat.v1.placeholder(dtype=tf.float32, shape=[None, self.config.n_label], name='labels')
         hidden1 = tf.nn.relu6(tf.layers.dense(inputs=features, units=self.n_hidden))
         hidden2 = tf.nn.relu6(tf.layers.dense(inputs=hidden1, units=self.n_hidden))
         hidden3 = tf.layers.dense(inputs=hidden2, units=self.config.n_label)
