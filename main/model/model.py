@@ -47,7 +47,7 @@ class Model(ABC):
 
     def get_params(self):
         with self.graph.as_default():
-            model_params = self.sess.run(tf.trainable_variables())
+            model_params = self.sess.run(tf.compat.v1.trainable_variables())
         return model_params
 
     @property
@@ -166,13 +166,13 @@ class ServerModel:
         """
         var_vals = {}
         with self.model.graph.as_default():
-            all_vars = tf.trainable_variables()
+            all_vars = tf.compat.v1.trainable_variables()
             for v in all_vars:
                 val = self.model.sess.run(v)
                 var_vals[v.name] = val
         for c in clients:
             with c.model.graph.as_default():
-                all_vars = tf.trainable_variables()
+                all_vars = tf.compat.v1.trainable_variables()
                 for v in all_vars:
                     v.load(var_vals[v.name], c.model.sess)
 
