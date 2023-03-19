@@ -16,4 +16,4 @@ if __name__ == '__main__':
     for f in files:
         factory_name = f.split('.')[0]
         plot_train_data(factory_name)
-plt.show()
+
